@@ -1,0 +1,131 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>乌镇</title>
+<link href="style/css.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+
+</style>
+</head>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	var sWidth = $("#focus").width();
+	var len = $("#focus ul li").length; 
+	var index = 0;
+	var picTimer;
+	
+	
+	var btn = "<div class='btnBg'></div><div class='btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span></span>";
+	}
+	btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+	$("#focus").append(btn);
+	$("#focus .btnBg").css("opacity",0.5);
+
+	
+	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+		index = $("#focus .btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+
+	
+	$("#focus .preNext").css("opacity",0.2).hover(function() {
+		$(this).stop(true,false).animate({"opacity":"0.5"},300);
+	},function() {
+		$(this).stop(true,false).animate({"opacity":"0.2"},300);
+	});
+
+	
+	$("#focus .pre").click(function() {
+		index -= 1;
+		if(index == -1) {index = len - 1;}
+		showPics(index);
+	});
+
+	
+	$("#focus .next").click(function() {
+		index += 1;
+		if(index == len) {index = 0;}
+		showPics(index);
+	});
+
+	
+	$("#focus ul").css("width",sWidth * (len));
+	
+	
+	$("#focus").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},4000);
+	}).trigger("mouseleave");
+	
+	
+	function showPics(index) { 
+		var nowLeft = -index*sWidth; 
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); 
+		
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+	}
+});
+
+</script>
+<body>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="1000" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="images/head.jpg" width="1000" height="200" /></td>
+      </tr>
+      <tr>
+        <td bgcolor="#5A181A"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="nav">
+            <tr>
+            <td height="30" align="center"><a href="index.html">首页</a></td>
+            <td align="center"><a href="zz.html">乌镇简介</a></td>
+            <td align="center"><a href="lvyou.html">乌镇旅游</a></td>
+            <td align="center"><a href="wh.html">乌镇文化</a></td>
+             <td align="center"><a href="meishi.html">乌镇美食</a></td>
+            <td align="center"><a href="pic.html">美图欣赏</a></td>
+            <td align="center"><a href="rongyu.html">乌镇荣誉</a></td>
+            <td align="center"><a href="ts.html">留言板</a><a href="fyd.html"></a></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td><div class="title">乌镇荣誉</div></td>
+      </tr>
+      <tr>
+        <td><div label-module="para">国家AAAAA级景区</div>
+          <div label-module="para">江南六大古镇（周庄、同里、甪直、西塘、乌镇、南浔）之一</div>
+          <div label-module="para">2003年亚太地区遗产保护杰出成就奖</div>
+          <div label-module="para">全国重点旅游景区旅游信息定点播报单位</div><img src="images/rongyu.jpg" width="300" align="right">
+          <div label-module="para">中国十佳古镇</div>
+          <div label-module="para">中国最美的十大村镇</div>
+          <div label-module="para">中国十大历史文化名镇</div>
+          <div label-module="para">欧洲游客最喜爱的中国旅游景区</div>
+          <div label-module="para">中国驰名商标</div>
+          <div label-module="para">嘉兴市&ldquo;十大休闲旅游景区&rdquo;</div>
+          <div label-module="para">中国大陆地区首个PATA金奖</div>
+          <div label-module="para">2005-CCTV中国十大魅力名镇</div>
+          <div label-module="para">浙江省非物质文化遗产旅游经典景区</div>
+          <h3>&nbsp;</h3>  <br /></td>
+      </tr>
+    </table>      <br /></td>
+  </tr>
+  <tr>
+    <td align="center" bgcolor="white" class="footer">Copyright &copy;2019 - 2021  南工院 移动1823 蔡崴版权所有</td>
+  </tr>
+</table>
+</body>
+</html>

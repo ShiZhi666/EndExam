@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>乌镇</title>
+<link href="style/css.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+
+</style>
+</head>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	var sWidth = $("#focus").width(); 
+	var len = $("#focus ul li").length; 
+	var index = 0;
+	var picTimer;
+	
+	
+	var btn = "<div class='btnBg'></div><div class='btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span></span>";
+	}
+	btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+	$("#focus").append(btn);
+	$("#focus .btnBg").css("opacity",0.5);
+
+	
+	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+		index = $("#focus .btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+
+	
+	$("#focus .preNext").css("opacity",0.2).hover(function() {
+		$(this).stop(true,false).animate({"opacity":"0.5"},300);
+	},function() {
+		$(this).stop(true,false).animate({"opacity":"0.2"},300);
+	});
+
+
+	$("#focus .pre").click(function() {
+		index -= 1;
+		if(index == -1) {index = len - 1;}
+		showPics(index);
+	});
+
+	
+	$("#focus .next").click(function() {
+		index += 1;
+		if(index == len) {index = 0;}
+		showPics(index);
+	});
+
+	
+	$("#focus ul").css("width",sWidth * (len));
+	
+	
+	$("#focus").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},4000); 
+	}).trigger("mouseleave");
+	
+	
+	function showPics(index) { 
+		var nowLeft = -index*sWidth; 
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300); 
+		
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+	}
+});
+
+</script>
+<body>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="1000" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="images/head.jpg" width="1000" height="200" /></td>
+      </tr>
+      <tr>
+        <td bgcolor="#5A181A"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="nav">
+            <tr>
+            <td height="30" align="center"><a href="index.html">首页</a></td>
+            <td align="center"><a href="zz.html">乌镇简介</a></td>
+            <td align="center"><a href="lvyou.html">乌镇旅游</a></td>
+            <td align="center"><a href="wh.html">乌镇文化</a></td>
+             <td align="center"><a href="meishi.html">乌镇美食</a></td>
+            <td align="center"><a href="pic.html">美图欣赏</a></td>
+            <td align="center"><a href="rongyu.html">乌镇荣誉</a></td>
+            <td align="center"><a href="ts.html">留言板</a><a href="fyd.html"></a></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td><div class="title">乌镇简介</div></td>
+      </tr>
+      <tr>
+        <td align="left"><div>
+          <div label-module="para">乌镇隶属浙江省嘉兴市桐乡市，西临湖州市，北界江苏苏州市吴江区，地处江南水乡。</div>
+          <div label-module="para">乌  镇原以市河为界，分为乌青二镇，河西为乌镇，属湖州府乌程县；河东为青镇，属嘉兴府桐乡县。解放后，市河以西的乌镇划归桐乡县，才统称乌镇。全镇辖13个  社区居委会和18个行政村。陆上交通有贯穿镇区的县级公路姚震线，与省道盐湖公路、国道320公路、318公路、沪杭高速公路（申嘉湖高速）相衔接。</div>
+          <div label-module="para">乌镇是典型的江南地区汉族水乡古镇，有&ldquo;鱼米之乡，丝绸之府&rdquo;之称。乌镇具有六千余年悠久历史，是全国二十个黄金周预报景点及江南六大古镇之一。1991年被评为浙江省历史文化名城，1999年开始古镇保护和旅游开发工程。</div>
+          <div label-module="para">2014年11月19日始，乌镇成为世界互联网大会永久会址。</div>
+          <img src="images/05.jpg" align="right"></div>
+          <div>
+            <div label-module="para">乌镇古名乌墩、乌戍。乌镇处于河流冲积平原，沼多淤积土，故地脉隆起高于四旷，色深而肥沃，遂有乌墩之名。距乌镇9公里处有一村叫红墩，其镇志上说：&ldquo;红墩在镇西，地脉坟起，厥土赤壤，村以是名。&rdquo;又旁有一村名紫墩，就是因为多紫色石土的缘故。</div>
+            <div label-module="para">乌镇历史渊源流长，根据镇东&ldquo;谭家湾古文化遗址&rdquo;出土的陶器、石器、骨器、兽骨等的鉴定，该处属于马家浜文化类型，处于新石器时代。可见，六千多年前，乌镇的祖先繁衍、生息在这里。</div>
+            <div label-module="para">春秋时期，乌镇是吴越边境，吴国在此驻兵以防备越国，&ldquo;乌戍&rdquo;就由此而来。唐之后，乌镇没有再称&ldquo;乌戍&rdquo;的史实。</div>
+            <div label-module="para">秦时，乌镇属会稽郡，以车溪为界，西为乌墩，属乌程县，东为青墩，属由拳县，乌镇分而治之的局面由此开始。</div>
+            <div label-module="para">
+<div></div>
+              <div></div>
+              <div>
+                <div></div>
+                <div></div>
+              </div>
+             唐时，乌镇隶属苏府。唐咸通十三年（872）的《索靖明王庙碑》首次出现&ldquo;乌镇&rdquo;的称呼，这一时期的另一块碑《光福教寺碑》中则有&ldquo;乌青镇&rdquo;的称呼。</div>
+          </div>          <br /></td>
+      </tr>
+     
+    </table>      <br /></td>
+  </tr>
+ <tr>
+    <td align="center" bgcolor="white" class="footer">Copyright &copy;2019 - 2021  南工院 移动1823 蔡崴版权所有</td>
+  </tr>
+</table>
+</body>
+</html>

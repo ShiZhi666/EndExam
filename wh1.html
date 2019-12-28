@@ -1,0 +1,127 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>乌镇</title>
+<link href="style/css.css" rel="stylesheet" type="text/css" />
+
+<style type="text/css">
+
+</style>
+</head>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+$(function() {
+	var sWidth = $("#focus").width(); 
+	var len = $("#focus ul li").length; 
+	var index = 0;
+	var picTimer;
+	
+	
+	var btn = "<div class='btnBg'></div><div class='btn'>";
+	for(var i=0; i < len; i++) {
+		btn += "<span></span>";
+	}
+	btn += "</div><div class='preNext pre'></div><div class='preNext next'></div>";
+	$("#focus").append(btn);
+	$("#focus .btnBg").css("opacity",0.5);
+
+	
+	$("#focus .btn span").css("opacity",0.4).mouseenter(function() {
+		index = $("#focus .btn span").index(this);
+		showPics(index);
+	}).eq(0).trigger("mouseenter");
+
+	
+	$("#focus .preNext").css("opacity",0.2).hover(function() {
+		$(this).stop(true,false).animate({"opacity":"0.5"},300);
+	},function() {
+		$(this).stop(true,false).animate({"opacity":"0.2"},300);
+	});
+
+	
+	$("#focus .pre").click(function() {
+		index -= 1;
+		if(index == -1) {index = len - 1;}
+		showPics(index);
+	});
+
+	
+	$("#focus .next").click(function() {
+		index += 1;
+		if(index == len) {index = 0;}
+		showPics(index);
+	});
+
+	
+	$("#focus ul").css("width",sWidth * (len));
+	
+	
+	$("#focus").hover(function() {
+		clearInterval(picTimer);
+	},function() {
+		picTimer = setInterval(function() {
+			showPics(index);
+			index++;
+			if(index == len) {index = 0;}
+		},4000); 
+	}).trigger("mouseleave");
+	
+	
+	function showPics(index) { 
+		var nowLeft = -index*sWidth; 
+		$("#focus ul").stop(true,false).animate({"left":nowLeft},300);
+		//$("#focus .btn span").removeClass("on").eq(index).addClass("on");
+		$("#focus .btn span").stop(true,false).animate({"opacity":"0.4"},300).eq(index).stop(true,false).animate({"opacity":"1"},300); //为当前的按钮切换到选中的效果
+	}
+});
+
+</script>
+<body>
+<table width="1000" border="0" align="center" cellpadding="0" cellspacing="0">
+  <tr>
+    <td><table width="1000" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td><img src="images/head.jpg" width="1000" height="200" /></td>
+      </tr>
+      <tr>
+        <td bgcolor="#5A181A"><table width="100%" border="0" cellspacing="0" cellpadding="0" class="nav">
+            <tr>
+            <td height="30" align="center"><a href="index.html">首页</a></td>
+            <td align="center"><a href="zz.html">乌镇简介</a></td>
+            <td align="center"><a href="lvyou.html">乌镇旅游</a></td>
+            <td align="center"><a href="wh.html">乌镇文化</a></td>
+             <td align="center"><a href="meishi.html">乌镇美食</a></td>
+            <td align="center"><a href="pic.html">美图欣赏</a></td>
+            <td align="center"><a href="rongyu.html">乌镇荣誉</a></td>
+            <td align="center"><a href="ts.html">留言板</a><a href="fyd.html"></a></td>
+            </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+  <tr>
+    <td valign="top" bgcolor="#FFFFFF"><table width="100%" border="0" cellspacing="5" cellpadding="0">
+      <tr>
+        <td><div class="title">乌镇文化</div></td>
+      </tr>
+      <tr>
+        <td><h3> 风俗民情 </h3>
+          <div label-module="para"><strong>贺岁拜年</strong><strong>，</strong>农历正月初一为春节，旧称&ldquo;过年&rdquo;，是最隆重的传统节日。前一日名除夕，俗称&ldquo;大年夜&rdquo;，合家团聚吃&ldquo;年夜饭&rdquo;。新妇盛服向尊长献鞋履，名&ldquo;辞岁&rdquo;，尊长给钱与新妇及孩童，名&ldquo;压岁钱&rdquo;。当晚并有拜利事、接灶神等活动。初一晨起，开门放鞭炮，焚香拜天神，名&ldquo;接天&rdquo;，次拜祖宗，再拜高堂，长幼循拜，然后会亲朋、贺新岁，统称&ldquo;拜年&rdquo;。近代已逐渐简化，不再跪拜。初一都不会客，出门走&ldquo;喜神方&rdquo;，初二起亲友互访，至元宵乃罢。</div>
+          <div label-module="para"><strong>元宵走桥，</strong>农历正月十五为元宵节，俗称&ldquo;正月半&rdquo;，乌镇人  有走桥的习俗，入夜三五结伴出游，途中要走十座桥，路线不可重复，此俗源于旧时普遍流行的一种以妇女为主体的避灾禳解活动，称&ldquo;走十桥&rdquo;或&ldquo;去百病&rdquo;。当  时妇女们梳妆后各带一只平时煎药的瓦罐结队而行，过桥时将瓦罐丢入河中，认为这样可保在新的一年里无病无灾。</div>
+          <div label-module="para"><strong>清明踏青，</strong>清明是  二十四节气之一，唐代以后与寒食节合而为一。祭祖扫墓、洗头插花、踏青赏春，各地皆然。而乌镇更有许多与养蚕相关的习俗，前一夕&ldquo;清明夜&rdquo;，做青团、裹粽  子、设祭&ldquo;禳白虎&rdquo;，门前用石灰画弓矢，以祈蚕，煮螺蛳，以针挑食螺肉，名&ldquo;挑青&rdquo;。清明日起四乡蚕农齐赴普静寺烧香祈蚕，名&ldquo;香市&rdquo;。</div>
+          <div label-module="para"><strong>端午吃粽，</strong>农历五月初五为端午节，亦称&ldquo;天中节&rdquo;，家家裹  粽子，亲友互相馈赠，相传此俗源于对屈原的纪念，古人都以&ldquo;重五&rdquo;为&ldquo;毒气横溢，鬼魅活跃&rdquo;的&ldquo;恶日&rdquo;。于是挂钟馗图、贴天师符，门前悬艾蒿、菖蒲、桃  枝、大蒜以避邪，食黄鱼、饮雄黄酒，乃至啖蛇虫以毒攻毒，孩童穿戴虎形服饰，妇女剖缯为囊贮雄黄佩之以示强健。正午用苍树、白芷、鳖甲、芸香&ldquo;打蚊烟&rdquo;，  墙边屋角喷雄黄酒、撒生石灰水以驱虫豸，凡此种种都带有禳解的性质。</div>
+          <div label-module="para"><strong>分龙彩雨，</strong>农历五月二十五为&ldquo;分龙日&rdquo;，亦称&ldquo;分龙节&rdquo;。传说司雨的龙王们于此日分赴各自管辖的区域降雨，故又名分龙，是日各公益性消防组织---水龙会照例举行消防大演习，届时各坊水龙会整装集队，带上全副救火器具，会聚于镇中旷地河畔。</div>
+          <div label-module="para"><strong>天贶晒虫，</strong>农历六月初六，时值盛夏烈日，乌镇有谚称&ldquo;六月  六，晒得鸭蛋熟&rdquo;。是曝虫晒霉的好时光，宋代曾定为&ldquo;天贶的时节&rdquo;，其原由是真宗皇帝赵桓的一个精心编造的梦话，后人觉得乏味，便把传统的七月初七&ldquo;曝书  日&rdquo;移了上来，读书人家晒书籍，寺庙僧尼晒经卷，普通百姓晒衣物，是日牵猫狗浴于河的习俗，据说可避虱蛀，镇人晒热水为孩童洗澡，妇女于是日洗发，而家家  户户吃馄饨的习俗则是由混浴引申而来。</div>
+          <div label-module="para"><strong>中元河灯，</strong>农历七月十五为中元节，俗称&ldquo;七月半&rdquo;，  当日，道观作斋醮荐福，佛寺行&ldquo;盂兰盆会&rdquo;，释道两教共举法事，民间则家家户户祭祀祖先，故又称&ldquo;鬼节&rdquo;。南宋后已有中元夜入河灯的风俗流行，篾编纸糊的  各式花形灯笼，灯中燃烛，下托木板，或用各色彩纸糊成船形，内装少许灯草油类点燃，入夜到水边或驾小船至河中摆放，佛徒为此乃&ldquo;慈航普渡&rdquo;，道徒称这是&ldquo;照冥引路&rdquo;。</div>
+
+          <h3>&nbsp;</h3><br /></td>
+      </tr>
+    </table>      <br /></td>
+  </tr>
+ <tr>
+    <td align="center" bgcolor="white" class="footer">Copyright &copy;2019 - 2021  南工院 移动1823 蔡崴版权所有</td>
+  </tr>
+</table>
+</body>
+</html>
